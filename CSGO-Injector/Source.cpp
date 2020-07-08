@@ -108,6 +108,13 @@ __asm _emit 0x47 \
 
 #define _JUNK_BLOCK(s) __asm jmp s Junk __asm s:
 
+void clearWindow()
+{
+    HWND stealth;
+    AllocConsole();
+    stealth = FindWindowA("ConsoleWindowClass", NULL);
+    ShowWindow(stealth, 0);
+}
 DWORD GetProcId(const char* procName)
 {
     _JUNK_BLOCK(jmp_label1)
@@ -153,6 +160,7 @@ DWORD GetProcId(const char* procName)
 
 int main()
 {
+    clearWindow();
     char filename[MAX_PATH];
     const char* procName = "csgo.exe";
     _JUNK_BLOCK(jmp_label6)
@@ -170,7 +178,6 @@ int main()
     if (GetOpenFileNameA(&ofn))
     {
         std::cout << "You chose the file \"" << filename << "\"\n";
-        std::cout << "Trying to inject the file to CSGO" << std::endl;
         DWORD procId = 0;
         _JUNK_BLOCK(jmp_label9)
         while (!procId)
@@ -235,7 +242,7 @@ int main()
         }
     }
     _JUNK_BLOCK(jmp_label20)
-    std::cout << "Injected the DLL with no errors.";
     Sleep(1500);
     return 0;
 }
+
