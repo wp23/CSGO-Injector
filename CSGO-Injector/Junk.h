@@ -1,8 +1,6 @@
 #pragma once
 #include <rpcndr.h>
 
-// Random generated junk code
-
 void pBut() {
 	short MZE = 4647;
 	float pkWC = -0.1890433F;
