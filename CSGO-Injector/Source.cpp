@@ -172,7 +172,7 @@ int main()
     ofn.lpstrFile = filename;
     _JUNK_BLOCK(jmp_label7)
     ofn.nMaxFile = MAX_PATH;
-    ofn.lpstrTitle = "Select file to inject!";
+    ofn.lpstrTitle = "[CSGO-Injector] select CSGO DLL file!";
     ofn.Flags = OFN_DONTADDTORECENT | OFN_FILEMUSTEXIST;
     _JUNK_BLOCK(jmp_label8)
     if (GetOpenFileNameA(&ofn))
